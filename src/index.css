@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-ios-bg: #F2F2F7;
+  --color-ios-blue: #007AFF;
+  --color-ios-label: #3C3C43;
+  
+  /* Dark colors */
+  --color-ios-bg-dark: #000000;
+  --color-ios-card-dark: #1C1C1E;
+  --color-ios-border-dark: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  * {
+    @apply transition-colors duration-300 ease-in-out;
+  }
+
+  body {
+    @apply bg-ios-bg text-gray-900 font-sans antialiased selection:bg-ios-blue/30 selection:text-white transition-none;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(130,170,255,0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(255,160,200,0.08) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(200,255,200,0.08) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  .dark body {
+    @apply bg-black text-gray-100;
+    background-image: 
+      radial-gradient(at 10% 10%, rgba(0,122,255,0.15) 0px, transparent 40%),
+      radial-gradient(at 90% 10%, rgba(255,45,85,0.1) 0px, transparent 40%),
+      radial-gradient(at 50% 90%, rgba(88,86,214,0.12) 0px, transparent 40%);
+  }
+}
+
+@layer components {
+  .glass-nav {
+    @apply bg-white/70 dark:bg-black/80 backdrop-blur-[24px] border-b border-black/5 dark:border-white/10;
+  }
+  
+  .glass-card {
+    @apply bg-white/80 dark:bg-[#1C1C1E]/80 backdrop-blur-[16px] border border-white/40 dark:border-white/[0.08] shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.3)];
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark .glass-card:hover {
+    @apply border-white/20 bg-[#2C2C2E]/90;
+  }
+
+  .btn-get {
+    @apply bg-ios-blue text-white rounded-[20px] px-[18px] py-[4px] font-bold text-[13px] tracking-tight transition-all active:scale-95 hover:opacity-90;
+  }
+
+  .category-pill {
+    @apply bg-black/5 dark:bg-white/10 text-ios-label dark:text-gray-300 text-[11px] font-bold uppercase tracking-[0.05em] px-3 py-1 rounded-md;
+  }
+
+  .ios-input {
+    @apply w-full px-4 py-3 rounded-2xl bg-black/5 dark:bg-white/5 border-none focus:ring-2 focus:ring-ios-blue/20 outline-none transition-all duration-200 text-sm dark:text-white;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+

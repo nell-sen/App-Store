@@ -1,0 +1,6 @@
+{
+  "name": "NellApps",
+  "description": "A modern, iOS-inspired store for APK links with real-time Firestore database.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
